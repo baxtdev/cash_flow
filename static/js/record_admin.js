@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    console.log("✅ jQuery-версия загружена!");
 
     function resetSelect($select) {
         $select.html('<option value="">---------</option>');
@@ -19,7 +18,6 @@ $(document).ready(function () {
 
     $typeSelect.on('change', function () {
         const typeId = $(this).val();
-        console.log("📦 Выбран тип:", typeId);
 
         resetSelect($categorySelect);
         resetSelect($subcategorySelect);
@@ -45,7 +43,6 @@ $(document).ready(function () {
 
     $categorySelect.on('change', function () {
         const categoryId = $(this).val();
-        console.log("📁 Выбрана категория:", categoryId);
 
         resetSelect($subcategorySelect);
 
