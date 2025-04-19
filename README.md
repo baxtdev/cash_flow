@@ -57,4 +57,24 @@
 ```bash
 git clone https://github.com/baxtdev/cash_flow.git
 cd cash_flow/
+
+2. Создание виртуального окружения:
+```bash
+python3 -m venv venv 
+source venv/bin/activate
+
+3. Установка зависимостей:
+```bash
 pip install -r requirements.txt
+
+4. Запуск сервера:
+```bash
+python manage.py runserver
+
+5. Применение миграций:
+```bash
+python manage.py migrate
+
+6. Создание суперпользователя:
+```bash
+python manage.py createsuperuser
