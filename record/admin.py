@@ -10,7 +10,7 @@ from .filters import (
     TypeFilter, CategoryFilter, 
     SubcategoryFilter, StatusFilter
     )
-
+from .forms import RecordForm
 #inlines 
 class CategoryInline(admin.TabularInline):
     model = Category
@@ -53,6 +53,9 @@ class SubcategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Record)
 class RecordAdmin(admin.ModelAdmin):
+    form = RecordForm
     list_display = ['created_date','status','type','category','subcategory','amount','comment']
     list_filter = ['status','type','category','subcategory',('created_date',DateRangeFilter)]
-
+    
+    class Media:
+        js = ('js/record_admin.js',)
