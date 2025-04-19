@@ -47,7 +47,7 @@
 - Python 3.10+
 - Django 4.x
 - SQLite (по умолчанию)
-- Django Admin
+- Django Admin(jazzmin)
 
 ---
 
@@ -57,3 +57,4 @@
 ```bash
 git clone https://github.com/baxtdev/cash_flow.git
 cd cash_flow/
+pip install -r requirements.txt
