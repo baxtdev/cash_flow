@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 
 
@@ -122,3 +123,9 @@ class Record(models.Model):
     
     def __str__(self):
         return f"{self.amount} ({self.type.name})"
+    
+    def clean(self):
+        if self.category.type != self.type:
+            raise ValidationError("Категория не относится к выбранному типу")
+        if self.subcategory.category != self.category:
+            raise ValidationError("Подкатегория не относится к выбранной категории")

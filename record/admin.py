@@ -1,9 +1,15 @@
 from django.contrib import admin
 
+from rangefilter.filters import DateRangeFilter
+
 from .models import (
     Status,Type,Category,
     Subcategory,Record
 )
+from .filters import (
+    TypeFilter, CategoryFilter, 
+    SubcategoryFilter, StatusFilter
+    )
 
 #inlines 
 class CategoryInline(admin.TabularInline):
@@ -48,5 +54,5 @@ class SubcategoryAdmin(admin.ModelAdmin):
 @admin.register(Record)
 class RecordAdmin(admin.ModelAdmin):
     list_display = ['created_date','status','type','category','subcategory','amount','comment']
-    list_filter = ['status','type','category','subcategory','created_date']
+    list_filter = ['status','type','category','subcategory',('created_date',DateRangeFilter)]
 
